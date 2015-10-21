@@ -31,13 +31,15 @@ cacheSolve <- function(x, ...) {
   ## Return a matrix that is the inverse of 'x'
   
   m <- x$getinverse()
-  if(!is.null(m)) {
+  if(!is.null(m)) { ## Check if inverse matrix (m) exists
     message("getting cached data")
-    return(m)
+    return(m) ## ...grab inverse matrix (m) from cache
   }
-  data <- x$get()
-  m <- solve(data, ...)
-  x$setinverse(m)
-  m
+  data <- x$get() ## put matrix into data
+  m <- solve(data, ...) ## create inverse of matrix (m)
+  x$setinverse(m) ## assign inverse matrix to (m)
+  m ## display the inverse matrix
+  
+}
   
 }
